@@ -2,14 +2,14 @@ import random
 from datetime import datetime
 
 from flask import Flask, jsonify
-from flask.ext.cache import Cache
+from flask_cache import Cache
 
 
 app = Flask(__name__)
 app.config.from_pyfile('hello.cfg')
 cache = Cache(app)
 
-#: This is an example of a cached view 
+#: This is an example of a cached view
 @app.route('/api/now')
 @cache.cached(50)
 def current_time():
